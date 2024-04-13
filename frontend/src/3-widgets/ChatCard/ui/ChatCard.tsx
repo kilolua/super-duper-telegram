@@ -9,6 +9,11 @@ const ChatCardWrapper = styled.div`
     align-items: center;
     gap: 10px;
     padding: 10px;
+    border-radius: 10px;
+
+    &:hover {
+        background: #eae9e9;
+    }
 `
 
 const ChatCardContentText = styled.div`
