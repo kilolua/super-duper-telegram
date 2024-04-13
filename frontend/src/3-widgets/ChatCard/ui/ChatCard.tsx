@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import ChatIcon from "@/6-shared/ui/chatIcon/ChatIcon.tsx";
 import styled from "styled-components";
 
@@ -23,16 +23,21 @@ const ChatCardContentText = styled.div`
     flex-direction: column;
 `
 
-export const ChatCard:FC = () => {
+interface Props{
+    title:string,
+    text?:string
+}
+
+export const ChatCard:FC<Props> = ({title, text}) => {
     return (
         <ChatCardWrapper>
             <ChatIcon/>
             <ChatCardContentText>
                 <div>
-                    Заголовок
+                    {title}
                 </div>
                 <div>
-                    Последнее сообщение
+                    {text}
                 </div>
             </ChatCardContentText>
         </ChatCardWrapper>

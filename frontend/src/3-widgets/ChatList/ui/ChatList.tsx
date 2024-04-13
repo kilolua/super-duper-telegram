@@ -1,6 +1,7 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import {ChatCard} from "@/3-widgets/ChatCard";
 import styled from "styled-components";
+import {useAppSelector} from "@/1-app/store/hook.ts";
 
 const ChatListWrapper = styled.div`
     padding: 10px;
@@ -8,10 +9,16 @@ const ChatListWrapper = styled.div`
 `
 
 export const ChatList: FC = () => {
+    const {chats} = useAppSelector((state)=>state.chats);
+
     return (
         <ChatListWrapper>
-            {Array(10).fill(1).map(() => (
-                <ChatCard/>
+            {chats.map((item)=>(
+                <ChatCard
+                    key={item.interlocutor.id}
+                    title={item.interlocutor.name}
+                    text={item.chatMessages?.at(-1)?.text}
+                />
             ))}
         </ChatListWrapper>
     );
