@@ -2,7 +2,7 @@ import {FC} from 'react';
 import styled from "styled-components";
 import {Card} from "@mui/material";
 import {ChatList} from "@/3-widgets/ChatList";
-import {CurrentChat} from "@/3-widgets/CurrentChat";
+import {Outlet} from "react-router";
 
 const MainWrapper = styled.div`
     display: grid;
@@ -16,7 +16,7 @@ export const MainPage:FC = () => {
                 <ChatList/>
             </Card>
             <Card>
-                <CurrentChat/>
+                <Outlet/>
             </Card>
         </MainWrapper>
     );
